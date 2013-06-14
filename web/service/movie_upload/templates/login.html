@@ -1,0 +1,15 @@
+{{include file='../libs/header.tpl'}}
+{{include file='../libs/frame.tpl'}}
+<div align='left' style='width:500px;'>
+ログイン<br>
+{{foreach from=$messages item=message}}
+	<span style='color:red;'>{{$message}}</span><br>
+{{/foreach}}
+<form method='post' action='login.php'>
+name:<input type='text' name='name'><br>
+password:<input type='password' name='passwd'><br>
+<input type='submit' value='ログイン' name='login'>
+<input type='submit' value='新規登録' name='register'>
+</form>
+</div>
+{{include file='../libs/footer.tpl'}}

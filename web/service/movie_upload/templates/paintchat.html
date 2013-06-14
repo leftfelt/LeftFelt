@@ -1,0 +1,41 @@
+{{include file="../libs/paintheader.tpl"}}
+{{include file='../libs/frame.tpl'}}
+{{include file="../libs/bar.tpl"}}
+{{include file="../libs/search.tpl"}}
+
+<div id='viewer'>
+<div id='title'>
+<h1>{{$video.title|escape}}</h1>
+</div>
+<div id='desc'>
+{{$video.description|escape}}
+</div>
+<div id="tags"align='left'>
+タグ:
+{{foreach from=$video.tags item=tag}}
+<a href="search.php?tag&keyword={{$tag}}">{{$tag|escape}}</a>
+{{/foreach}}
+</div>
+<div id="status">
+接続人数:<span id="conNum"></span>人
+</div>
+<a id='edit' style='float:right' href="Javascript:void(0)" onclick='tagEdit();'>【タグ編集】</a><br>
+<div id='tagEdit' align='left'>
+	<b>タグの追加</b><br>
+	<input type='hidden' name='id' value='{{$smarty.get.id}}'>
+	<input type='text' id='addtag'>
+	<input type='button' value='追加' onclick="addTag();"><br><br>
+	<b>タグの編集</b><br>
+{{if isset($video.tags)}}
+{{foreach from=$video.tags key=k item=tag}}
+	<div name='tag'>{{$tag|escape}}<input type='button' value='削除' onclick="deleteTag('{{$tag}}');"></div>
+{{/foreach}}
+{{/if}}
+</div>
+<canvas width='640' height='480' id='canvas' class='contents'></canvas>
+<div>
+<input type='text' id='msg'>
+<input type='button' onclick="testButton();" value='テストボタン'>
+</div>
+</div>
+{{include file="../libs/footer.tpl"}}

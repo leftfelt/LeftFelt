@@ -1,0 +1,14 @@
+{{include file="../libs/header.tpl"}}
+<div id='edit_tag'>
+<b>タグの追加</b><br>
+<form method='get' action='edit_tag.php'>
+<input type='hidden' name='id' value='{{$smarty.get.id}}'>
+<input type='text' id='addtag'>
+<input type='button' value='追加' onclick="addTag({{$smarty.get.id}});"><br><br>
+<b>タグの編集</b><br>
+{{foreach from=$tags item=tag}}
+{{$tag|escape}} <input type='button' value='削除' onclick="deleteTag({{$smarty.get.id}},'{{$tag}}');"><br> 
+{{/foreach}}
+</form>
+</div>
+{{include file="../libs/footer.tpl"}}

@@ -1,0 +1,48 @@
+{{include file="../libs/header.tpl"}}
+{{include file='../libs/frame.tpl'}}
+{{include file="../libs/bar.tpl"}}
+{{include file="../libs/search.tpl"}}
+<div id='viewer'>
+<div id='title'>
+<h1>{{$video.title|escape}}</h1>
+</div>
+<div id='desc'>
+{{$video.description|escape}}
+</div>
+<div id="tags"align='left'>
+タグ:
+{{foreach from=$video.tags item=tag}}
+<a href="search.php?tag&keyword={{$tag}}">{{$tag|escape}}</a>
+{{/foreach}}
+</div>
+<a id='edit' style='float:right' href="Javascript:void(0)" onclick='tagEdit();'>【タグ編集】</a><br>
+<div id='tagEdit' align='left'>
+	<b>タグの追加</b><br>
+	<input type='hidden' name='id' value='{{$smarty.get.id}}'>
+	<input type='text' id='addtag'>
+	<input type='button' value='追加' onclick="addTag();"><br><br>
+	<b>タグの編集</b><br>
+{{if isset($video.tags)}}
+{{foreach from=$video.tags key=k item=tag}}
+	<div name='tag'>{{$tag|escape}}<input type='button' value='削除' onclick="deleteTag('{{$tag}}');"></div>
+{{/foreach}}
+{{/if}}
+</div>
+<div id="monitor">
+<input type='hidden' id='ticket' value={{$ticket}}>
+<div id="comments"></div>
+	<video id="video" class='contents' controls width='640' onseeking="moveComments();"onloadstart="readComments();"onplay="procComments();">
+	<source src='videos/{{$smarty.get.id}}.mp4'>
+	<p>動画を再生するには、videoタグをサポートしたブラウザが必要です。<p>
+	</video>
+</div>
+<div id='commentbar' align='left'>
+<form action="Javascript:pushComment();">
+<input type='text' id='inputcomment'>
+<input type='submit' id='docomment'value='送信'>
+<span>コメント表示</span>
+<input type='checkbox' id='dispcomment' checked onclick="dispComment();">
+</form>
+</div>
+</div>
+{{include file="../libs/footer.tpl"}}

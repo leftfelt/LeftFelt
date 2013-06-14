@@ -1,0 +1,17 @@
+<html>
+	<head>
+	</head>
+	<body>
+		<form method="post" action="{$config.service_url}/login.php?service_id={$service_id}&next_url={$next_url}">
+			<div align="center" style="float:left">
+				ID:<br>
+				パスワード:<br>
+			</div>
+			<div>
+				<input type="text" name="user_id" value=""><br>
+				<input type="password" name="password" value=""><br>
+			</div>
+			<input type="submit"  name="login_button" value="ログイン" style="width:100px;">
+		</form>
+	</body>
+</html>

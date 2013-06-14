@@ -1,0 +1,17 @@
+{* 基本的にはこんな感じに書く 1.2.3は同じ書き方をすればOK　それ以外は自由に*}
+<html>
+	<head>
+	{* 1.cssファイルの読み込み *}
+	{include file=common/base/include_css.html}
+
+	</head>
+	<body>
+
+	{* 2.指定されてたテンプレートファイル *}
+	{include file=$base_template}
+	
+	{* 3.jsファイルの読み込み *}
+	{include file=common/base/include_javascript.html}
+	
+	</body>
+</html>

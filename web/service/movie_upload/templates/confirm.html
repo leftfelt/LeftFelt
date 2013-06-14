@@ -1,0 +1,16 @@
+{{include file='../libs/header.tpl'}}
+{{include file='../libs/frame.tpl'}}
+<div align='left' style='width:500px;'>
+確認<br><br>
+以下の内容で登録します。<br>
+<form method='post' action='confirm.php'>
+名前:{{$name}}<br>
+パスワード:{{$password}}<br>
+<input type='hidden' name='name' value='{{$name}}'>
+<input type='hidden' name='password' value='{{$password}}'>
+<input type='hidden' name='ticket' value={{$ticket}}>
+<input type='submit' value='送信'>
+<input type='submit' value='キャンセル' name='reset'>
+</form>
+</div>
+{{include file='../libs/footer.tpl'}}

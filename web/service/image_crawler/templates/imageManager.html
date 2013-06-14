@@ -1,0 +1,8 @@
+{foreach from=$image_list item=image}
+	<a href='{$image.url}' target='_blank'><img src='{$image.url}' style='height:300px;'/></a>
+{/foreach}
+<div align='center'>
+	<a href='imageManager.php?page={$page-1}&order={$order}&sort={$sort}'>{$page-1}</a>
+	{$page}
+	<a href='imageManager.php?page={$page+1}&order={$order}&sort={$sort}'>{$page+1}</a>
+</div>

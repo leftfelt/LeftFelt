@@ -1,0 +1,6 @@
+{* js_listからJSファイルを読み込む *}
+
+{foreach from=$base_js_list item=base_js}
+{* include file={$base_js} *}
+<script type='text/javascript' src='{$base_js}'></script>
+{/foreach}

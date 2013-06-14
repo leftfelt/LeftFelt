@@ -1,0 +1,124 @@
+#bar{
+	background-color : #0099aa;
+	color : white;
+}
+
+#updesc{
+	width : 550px;
+}
+
+#video_desc{
+	background-color : #DDDDDD;
+	margin : 2px;
+	height : 200px;
+}
+#myvideos{
+	width:496px;
+	float:left;
+}
+#mymenu{
+	width:200px;
+	float:left;
+}
+#tags{
+	overflow:hidden;
+}
+#tagEdit{
+	border:solid 1px black;
+	display:none;
+}
+#monitor{
+	background-color:black;
+	width:640px;
+	height:480px;
+	position:relative;
+	overflow:hidden;
+	z-index:0;
+}
+
+#canvas{
+	border:solid 1px black;
+}
+
+#commentbar{
+	background-color:black;
+	position:relative;
+	z-index:2;
+	color:white;
+}
+#inputcomment{
+	width:400px;
+	position:relative;
+	left:3px;
+}
+#docomment{
+	width:100px;
+	position:relative;
+	left:4px;
+}
+
+.contents{
+	width:640px;
+	height:480px;
+	position:relative;
+	left:0px;
+	top:0px;
+	z-index:0;
+}
+
+.frame{
+	width:800px;
+	position:absolute;
+	left:50%;
+	margin-left:-400px;
+}
+
+.comment{
+	color : white;
+	font-size:25px;
+	position:absolute;
+	z-index:2;
+	left:100%;
+	overflow:hidden;
+	white-space:nowrap;
+	text-shadow : black 1px 1px 1px;
+}
+
+#search{
+	overflow:hidden;
+	white-space:nowrap;
+
+}
+
+#bar{
+	overflow:hidden;
+	white-space:nowrap;
+}
+
+#test{
+	position:absolute;
+	top:50px;
+	left:50%;
+	width:100px;
+	height:100px;
+	background-color:blue;
+	z-index:10;
+}
+
+.center{
+	position:absolute;
+	left:50%;
+	top:50%;
+}
+
+textarea{
+	resize:none;
+}
+
+
+#desc{
+	border:solid 2px black;
+}
+#viewer{
+	width:640px;
+}

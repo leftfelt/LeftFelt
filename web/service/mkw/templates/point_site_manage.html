@@ -1,0 +1,82 @@
+<h3>ポイントサイト一覧</h3>
+<table id="point_site_list_area">
+</table>
+<textarea id="point_site_list_js_template" style='display:none;'>
+	<tr>
+		<th><a href="javascript:void(0);" onclick="MkwManage.PointSiteManagePage.edit('#[name]')">#[name]</a></th>
+		<td>#[description]</td>
+	</tr>
+</textarea>
+<textarea id="point_site_edit_js_template" style='display:none;'>
+{'
+<table>
+	<tr>
+		<th>名前</th>
+		<th><input type="text" id="name" value="#[name]"></th>
+	</tr>
+	<tr>
+		<th>詳細文</th>
+		<th><textarea id="description">#[description]</textarea></th>
+	</tr>
+	<tr>
+		<th>交換レート</th>
+		<th><input type="text" id="rate" value="#[rate]"></th>
+	</tr>
+	<tr>
+		<th>WebMoneyへの交換</th>
+		<th><input type="text" id="to_webmoney" value="#[to_webmoney]"></th>
+	</tr>
+	<tr>
+		<th>最低支払い</th>
+		<th><input type="text" id="min_pay" value="#[min_pay]"></th>
+	</tr>
+	<tr>
+		<th>ポイント交換先</th>
+		<th><textarea id="exchange_place">#[exchange_place]</textarea></th>
+	</tr>
+	<tr>
+		<th>ポイント獲得方法</th>
+		<th><textarea id="how_to_get_point">#[how_to_get_point]</textarea></th>
+	</tr>
+	<tr>
+		<th>登録に必要な情報</th>
+		<th><textarea id="register_info">#[register_info]</textarea></th>
+	</tr>
+	<tr>
+		<th>登録リンク</th>
+		<th><input type="text" id="register_link" value="#[register_link]"></th>
+	</tr>
+	<tr>
+		<th>バナーリンク</th>
+		<th><input type="text" id="banner_link" value="#[banner_link]"></th>
+	</tr>
+	<tr>
+		<td>
+			<button id="send_button">送信</button>
+			<button id="close_button">閉じる</button>
+		</td>
+	</th>
+</table>
+'|escape:'html'}
+</textarea>
+<textarea id="point_site_delete_js_template" style='display:none;'>
+<table>
+	<tr>
+		<th>名前</th>
+		<th><input type="text" id="name" value=""></th>
+	</tr>
+	<tr>
+		<td>
+			<button id="send_button">送信</button>
+			<button id="close_button">閉じる</button>
+		</td>
+	</th>
+</table>
+</textarea>
+
+<button id="add_button">追加</button>
+<button id="delete_button">削除</button>
+<span id="result"></span>
+
+<div id='point_site_edit_area'>
+</div>

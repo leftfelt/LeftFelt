@@ -1,0 +1,20 @@
+管理ツール
+<ul>
+<li><a href="linkManager.php">linkManager</a>(現在のリンク数:{$link_count})</li>
+<li><a href="imageManager.php">imageManager</a>(現在の画像数:{$image_count})</li>
+<li>クロール先追加<a/li>
+<form method="post" action="api/imageSetNextURL.php">
+<input type='text' name='url' value=''>
+<input type='submit' value="追加">
+</form>
+<form method="get" action="api/imageDelNextURL.php">
+<input type='submit' value="すべて削除">
+</form>
+
+<li>画像追加</li>
+<form method="get" action="api/addImageURL.php">
+<input type='text' name='url' value=''>
+<input type='submit' value="追加">
+</form>
+
+</ul>

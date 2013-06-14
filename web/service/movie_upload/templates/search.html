@@ -1,0 +1,25 @@
+{{include file="../libs/header.tpl"}}
+{{include file='../libs/frame.tpl'}}
+{{include file="../libs/bar.tpl"}}
+{{include file="../libs/search.tpl"}}
+
+{{foreach from=$video_list item=video}}
+	<div id="video_desc" align='left'>
+	<img src="thumbnail/{{$video.id|escape}}.jpg" align='left'>
+	<a href="viewer.php?id={{$video.id|escape}}">{{$video.title|escape}}</a><br>
+	再生数:{{$video.view|escape}}
+	コメント数:{{$video.comment_count|escape}}<br>
+	タグ:
+	{{foreach from=$video.tags item=tag}}
+	<a href='search.php?keyword={{$tag|escape}}&tag'>{{$tag|escape}}</a>
+	{{/foreach}}
+	<br><br>
+	{{$video.description|escape}}<br>
+	</div>
+{{/foreach}}
+
+{{foreach from=$pages item=page}}
+	<a href="{{$smarty.server.SCRIPT_NAME|basename}}?keyword={{$smarty.get.keyword}}&page={{$page}}">{{$page}}</a>
+{{/foreach}}
+
+{{include file="../libs/footer.tpl"}}

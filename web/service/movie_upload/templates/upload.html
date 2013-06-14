@@ -1,0 +1,25 @@
+{{include file="../libs/header.tpl"}}
+{{include file='../libs/frame.tpl'}}
+{{include file="../libs/bar.tpl"}}
+{{include file="../libs/search.tpl"}}
+
+<div id='upstatus'></div>
+<div id='upstatusdesc'></div>
+<div id='updesc'align='left'>
+<form method='post' action="thread.php" enctype='multipart/form-data' id="updata">
+ファイル<br>
+<input type='hidden' name='MAX_FILE_SIZE' value='100000000'>
+<input type='hidden' name='type' value='upload'>
+<input type='hidden' name='name' value='{{$name}}'>
+<input type='file' name='video' id='video'><br>
+タイトル<br>
+<input type='text' name='title' id='title' size='60'>
+{{$error.title|escape}}<br>
+詳細説明文<br>
+<textarea name='description' id='description' rows='10' cols='60' ></textarea>
+{{$error.description|escape}}<br>
+<input type='button' value='アップロード' id='upload' name='upload' onclick="sendUploadFile();">
+<input type='hidden' value='{{$ticket}}' name='ticket'>
+</form>
+</div>
+{{include file="../libs/footer.tpl"}}

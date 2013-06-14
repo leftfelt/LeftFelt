@@ -1,0 +1,6 @@
+{* css_listからCSSファイルを読み込む *}
+
+{foreach from=$base_css_list item=base_css}
+{* include file={$base_css} *}
+<link rel='stylesheet' type='text/css' href='{$config.service_url}{$base_css}'>
+{/foreach}

@@ -1,0 +1,68 @@
+<?php
+require_once('../libs/MySmarty.class.php');
+require_once('../libs/videos.class.php');
+require_once('../libs/ffmpeg.class.php');
+require_once('../libs/comments.class.php');
+require_once('../libs/functions.php');
+
+define('THUMB_WIDTH',160);
+define('THUMB_HEIGHT',120);
+
+session_start();
+//ログインチェック
+$name = loginCheck();
+$videos = new Videos();
+
+$title = @$_POST['title'];
+$desc = @$_POST['description'];
+$time = 10;//
+
+echo 'd';
+var_dump($name,$_POST,$_FILES);
+$error_message = array();
+if(isset($_POST['upload'])){
+	echo 's';
+	//入力チェック
+	if(!isset($title)|| $title == "") $error_message['title'] = "タイトルが入力されていません";
+	if(!isset($desc) || $desc == "") $error_message['description'] = "詳細説明文が入力されていません";
+
+	if(empty($error_message)){
+		//ファイル名決定
+		$filename = exec("find /home/httpd/public_html/videos/ -type f | wc -l") + 1;
+		$file = UPLOADS_ROOT.$filename;
+
+		//print_r($_FILES['video']);
+echo ('a');
+		if(is_uploaded_file($_FILES['video']['tmp_name'])){
+			//アップロード成功
+			//一時ファイルをuploadsにコピー
+			if(move_uploaded_file($_FILES['video']['tmp_name'],$file)){
+echo('b');
+
+				//ファイルチェック				
+
+				//変換開始
+				$ffmpeg = new ffmpeg();
+				$ffmpeg->convert($file,VIDEOS_ROOT.$filename.TYPE);
+echo('c');
+				//サムネイル作成
+				$videos->makeThumbnail($filename,THUMB_WIDTH,THUMB_HEIGHT,$time);
+				//コメントファイル作成
+				$comments = new Comments();
+				$comments->create($filename);
+				//DBにデータ追加
+				$videos->addVideo($name,$title,$desc);
+			}else{
+				echo "ファイルが見つかりません。";
+			}
+		}else{
+			echo "アップロードに失敗しました";
+		}
+	}
+}
+
+$smarty = new MySmarty();
+$smarty->assign('name',$name);
+$smarty->assign('error',$error_message);
+$smarty->display('upload.html');
+

@@ -1,0 +1,14 @@
+<h3 id="directory">{$dir}</h3>
+{if $file_data}
+<button id="contents_save">保存</button>
+<button id="contents_undo">すべて元に戻す</button>
+
+<textarea id='contents' style="width:100%;height:100%">
+{$file_data}
+</textarea>
+{/if}
+<ul>
+{foreach from=$file_list item=filename}
+	<li><a href='mkw_change_tool.php?dir={$dir}{$filename}'>{$filename}</a></li>
+{/foreach}
+</ul>
